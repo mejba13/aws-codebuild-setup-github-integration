@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14 # Specify the runtime environment
+    commands:
+      - echo Installing dependencies
+      - npm install # If you have any npm dependencies
+
+  pre_build:
+    commands:
+      - echo Nothing to pre-build in this simple project
+
+  build:
+    commands:
+      - echo Building the project
+      - echo "This is where build commands would go, if any"
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - /var/www/html/index.html
+  base-directory: build # Adjust this if your output directory is different
+
+# Uncomment and modify the following if you need to set environment variables or secrets
+# environment_variables:
+#   plaintext:
+#     EXAMPLE_VAR: "value"
+#   parameter_store:
+#     PARAMETER_NAME: "parameter_value"
+#   secrets_manager:
+#     SECRET_NAME: "secret_value"
